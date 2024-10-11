@@ -1,8 +1,6 @@
-# Front-End-Dev-Quiz-Questions
-This is a repo for personal reference of different quiz questions about front end development topics. It is a deep dive into javascript, react, HTML &amp; CSS
+# Interview Questions
 
-
-## Javascript Questions 
+## Javascript Questions
 
 ### 1. What is the difference between Javascript variables ‘let’ , ‘const’ and  ‘var’?
 
@@ -24,3 +22,4 @@ Use ‘let’ when reassigning a variable inside a scope.
 
 Avoid using ‘var’ for its possible scoping issue and hoisting problems
 
+<!-- ## 2.  What is the event loop in Javascript runtimes? -->
