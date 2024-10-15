@@ -22,7 +22,7 @@ Use ‘let’ when reassigning a variable inside a scope.
 
 Avoid using ‘var’ for its possible scoping issue and hoisting problems
 
-## 2.  Explain event delegation in JavaScript? 
+### 2.  Explain event delegation in JavaScript? 
 Event delegation is a design pattern in JavaScript used to efficiently manage and handle events on multiple child elements by attaching a single event listener to a common ancestor element. This pattern is particularly valuable in scenarios where you have a large number of similar elements, such as list items, and want to optimize event handling.
 
 ```jsx
