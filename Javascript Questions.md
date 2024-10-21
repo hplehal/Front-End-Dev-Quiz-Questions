@@ -45,7 +45,7 @@ itemList.addEventListener('click', (event) => {
 In this example, a single click event listener is attached to the ul element. When a click event occurs on an li element, the event bubbles up to the ul element, where the event listener checks the target's tag name to identify whether a list item was clicked. It's crucial to check the identity of the event.target as there can be other kinds of elements in the DOM tree.
 
 
-### 2.  Explain event loop in Javascript?
+### 3.  Explain event loop in Javascript?
 
 The event loop is the heart of JavaScript's asynchronous operation. It is a mechanism in browsers that handles the execution of code, allowing for asynchronous operations and ensuring that the single-threaded nature of JavaScript engines does not block the execution of the program.
 
