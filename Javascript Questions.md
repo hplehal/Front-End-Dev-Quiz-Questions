@@ -58,4 +58,4 @@ The event loop is the heart of JavaScript's asynchronous operation. It is a mech
   - Macrotask queue is processed. The event loop dequeues the first callback from the macrotask queue and pushes it onto the call stack for execution. However, after a macrotask queue callback is processed, the event loop does not proceed with the next macrotask yet! The event loop first checks the microtask queue. Checking the microtask queue is necessary as microtasks have higher priority than macrotask queue callbacks. The macrotask queue callback that was just executed could have added more microtasks!
     -If the microtask queue is non-empty, process them as per the previous step.
     - If the microtask queue is empty, the next macrotask queue callback is processed. This repeats until the macrotask queue is empty.
-1. This process continues indefinitely, allowing the JavaScript engine to handle both synchronous and asynchronous operations efficiently without blocking the call stack.
+5. This process continues indefinitely, allowing the JavaScript engine to handle both synchronous and asynchronous operations efficiently without blocking the call stack.
