@@ -60,3 +60,48 @@ The event loop is the heart of JavaScript's asynchronous operation. It is a mech
     - If the microtask queue is non-empty, process them as per the previous step.
     - If the microtask queue is empty, the next macrotask queue callback is processed. This repeats until the macrotask queue is empty.
 5. This process continues indefinitely, allowing the JavaScript engine to handle both synchronous and asynchronous operations efficiently without blocking the call stack.
+
+### 4. Describe event bubbling in JavaScript and browsers:
+Event bubbling is a DOM event propagation mechanism where an event (e.g. a click), starts at the target element and bubbles up to the root of the document. This allows ancestor elements to also respond to the event.
+
+Event bubbling is essential for event delegation, where a single event handler manages events for multiple child elements, enhancing performance and code simplicity. While convenient, failing to manage event propagation properly can lead to unintended behavior, such as multiple handlers firing for a single event.
+
+During the bubbling phase, the event starts at the target element and bubbles up through its ancestors in the DOM hierarchy. This means that the event handlers attached to the target element and its ancestors can all potentially receive and respond to the event.
+```jsx
+
+// HTML:
+// <div id="parent">
+//   <button id="child">Click me!</button>
+// </div>
+
+const parent = document.getElementById('parent');
+const child = document.getElementById('child');
+
+parent.addEventListener('click', () => {
+  console.log('Parent element clicked');
+});
+
+child.addEventListener('click', () => {
+  console.log('Child element clicked');
+});
+```
+When you click the "Click me!" button, both the child and parent event handlers will be triggered due to the event bubbling.
+
+Event bubbling can be stopped during the bubbling phase using the `stopPropagation()` method. If an event handler calls `stopPropagation()`, it prevents the event from further bubbling up the DOM tree, ensuring that only the handlers of the elements up to that point in the hierarchy are executed.
+```jsx
+
+child.addEventListener('click', (event) => {
+  console.log('Child element clicked');
+  event.stopPropagation();
+});
+
+```
+
+#### Benefits
+- Cleaner code: Reduced number of event listeners improves code readability and maintainability.
+- Efficient event handling: Minimizes performance overhead by attaching fewer listeners.
+- Flexibility: Allows handling events happening on child elements without directly attaching listeners to them.
+#### Pitfalls
+- Accidental event handling: Be mindful that parent elements might unintentionally capture events meant for children. Use event.target to identify the specific element that triggered the event.
+- Event order: Events bubble up in a specific order. If multiple parents have event listeners, their order of execution depends on the DOM hierarchy.
+- Over-delegation: While delegating events to a common ancestor is efficient, attaching a listener too high in the DOM tree might capture unintended events.
