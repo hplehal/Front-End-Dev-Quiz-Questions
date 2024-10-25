@@ -104,3 +104,9 @@ child.addEventListener('click', (event) => {
 - Accidental event handling: Be mindful that parent elements might unintentionally capture events meant for children. Use event.target to identify the specific element that triggered the event.
 - Event order: Events bubble up in a specific order. If multiple parents have event listeners, their order of execution depends on the DOM hierarchy.
 - Over-delegation: While delegating events to a common ancestor is efficient, attaching a listener too high in the DOM tree might capture unintended events.
+
+### 5. Describe the difference between a cookie, `sessionStorage` and `localStorage` in browsers
+
+- `Cookies`: Suitable for server-client communication, small storage capacity, can be persistent or session-based, domain-specific. Sent to the server on every request.
+- `localStorage`: Suitable for long-term storage, data persists even after the browser is closed, accessible across all tabs and windows of the same origin, highest storage capacity among the three.
+- `sessionStorage`: Suitable for temporary data within a single page session, data is cleared when the tab or window is closed, has a higher storage capacity compared to cookies.
