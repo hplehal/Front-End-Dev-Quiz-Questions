@@ -110,3 +110,21 @@ child.addEventListener('click', (event) => {
 - `Cookies`: Suitable for server-client communication, small storage capacity, can be persistent or session-based, domain-specific. Sent to the server on every request.
 - `localStorage`: Suitable for long-term storage, data persists even after the browser is closed, accessible across all tabs and windows of the same origin, highest storage capacity among the three.
 - `sessionStorage`: Suitable for temporary data within a single page session, data is cleared when the tab or window is closed, has a higher storage capacity compared to cookies.
+
+### 6. Explain how `this` works in JavaScript
+
+There's no simple explanation for `this`. it is one of the most confusing concepts in JavaScript because it's behavior differs from many other programming languages. The one-liner explanation of the `this` keyword is that it is a dynamic reference to the context in which a function is executed.
+
+1. If the `new` keyword is used when calling the function, meaning the function was used as a function constructor, the `this` inside the function is the newly-created object instance.
+
+2. If `this` is used in a class constructor, the `this` inside the `constructor` is the newly-created object instance.
+
+3. If `apply()`, `call()`, or `bind()` is used to call/create a function, `this` inside the function is the object that is passed in as the argument.
+
+4. If a function is called as a method (e.g. `obj.method()`) — `this` is the object that the function is a property of.
+
+5. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, this is the `global` object. In the browser, the `global` object is the `window` object. If in strict mode ('use strict';), this will be `undefined` instead of the `global` object.
+
+6. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
+
+7. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
